@@ -21,8 +21,6 @@ vendor/
 .settings
 .project
 
-/dist/
-
 .ftppass
 *.lock
 .tmp/
