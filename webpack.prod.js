@@ -1,3 +1,4 @@
+
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -21,6 +22,7 @@ module.exports = merge(common[0], {
         filename: 'cookie.min.js',
         libraryTarget: "umd",
         library: "CookieWarning",
+        umdNamedDefine: true,
         path: path.resolve(__dirname, 'dist')
     },
     module: {
