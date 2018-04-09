@@ -19,6 +19,8 @@ module.exports = merge(common[0], {
     ],
     output: {
         filename: 'cookie.min.js',
+        libraryTarget: "umd",
+        library: "CookieWarning",
         path: path.resolve(__dirname, 'dist')
     },
     module: {
