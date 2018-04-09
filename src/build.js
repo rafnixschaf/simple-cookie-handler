@@ -1,3 +1,6 @@
 import './css/import.scss';
 
-import './js/cookie.js';
+module.exports = require('./js/cookie.js').default;
+
+//import CookieWarning from './js/cookie.js';
+

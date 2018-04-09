@@ -10,9 +10,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const extractSass = new ExtractTextPlugin('cookie.min.css');
 
 module.exports = merge(common[0], {
-    entry: {
-        main: './build.js',
-    },
+    entry: './build.js',
     plugins: [
         extractSass,
         new webpack.HashedModuleIdsPlugin(),
@@ -22,7 +20,7 @@ module.exports = merge(common[0], {
         filename: 'cookie.min.js',
         libraryTarget: "umd",
         library: "CookieWarning",
-        umdNamedDefine: true,
+        umdNamedDefine: false,
         path: path.resolve(__dirname, 'dist')
     },
     module: {

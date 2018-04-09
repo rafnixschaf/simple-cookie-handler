@@ -161,4 +161,4 @@ CookieWarning.defaults = {
     }
 };
 
-module.exports = CookieWarning;
+export default CookieWarning;

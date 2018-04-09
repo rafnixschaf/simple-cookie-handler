@@ -1,6 +1,6 @@
 {
   "name": "simple-cookie-handler",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Handling Cookie Warning",
   "main": "index.html",
   "scripts": {
@@ -19,6 +19,7 @@
   "devDependencies": {
     "autoprefixer": "8.2.0",
     "babel-loader": "7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "1.6.1",
     "browser-sync": "2.23.6",
@@ -35,6 +36,7 @@
     "resolve-url-loader": "2.3.0",
     "sass-loader": "6.0.7",
     "style-loader": "0.20.3",
+    "transform-runtime": "0.0.0",
     "webpack": "4.2.0",
     "webpack-cli": "2.0.13",
     "webpack-manifest-plugin": "2.0.0-rc.2",
