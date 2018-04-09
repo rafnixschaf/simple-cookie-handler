@@ -82,7 +82,7 @@ class CookieWarning {
     }
 
     getTemplate() {
-        return this.options.template(this.options.tplContent, this.options.tplBtn);
+        return this.options.template(this.options.tplContent, this.options.tplBtn, this.options.position);
     }
 
     /**
@@ -143,13 +143,14 @@ class CookieWarning {
 
 CookieWarning.defaults = {
     cookieName: "kr-cookie-acc",
+    position: "bottom",
     duration: "31536e3",
     value: "true",
     path: "/",
     tplContent: "Diese Website verwendet Cookies. Indem Sie die Website und ihre Angebote nutzen und weiter navigieren, akzeptieren Sie diese Cookies. Dies können Sie in Ihren Browsereinstellungen ändern.",
     tplBtn: "Akzeptieren",
-    template: function(content, btnText) {
-        return  '<div class="cookie-warning">' +
+    template: function(content, btnText, position) {
+        return  '<div class="cookie-warning '+ position + '">' +
             '   <div class="cookie--inner">' +
             '      <p>' + content +
             '      </p>' +

@@ -1,3 +1,4 @@
-const CookieWarning = require('./cookie');
+import CookieWarning from './cookie.js';
 
-new CookieWarning().init();
+
+new CookieWarning().init( { position: "bottom"});

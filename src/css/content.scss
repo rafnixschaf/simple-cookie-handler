@@ -4,15 +4,20 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: white;
+  background-color: rgb(195, 193, 193);
   z-index: 9999;
-  padding: 1rem;
+
+
   align-items: center;
   justify-content: space-around;
+  flex-direction: column;
 
   .cookie--inner {
     display: flex;
     flex-wrap: wrap;
+    padding: 1rem;
+
+    max-width: 100%;
 
     p {
       max-width: 100%;
@@ -26,8 +31,13 @@
   }
   .cookie--footer {
     display: flex;
+    padding: 1rem;
     justify-content: flex-end;
     padding-bottom: 1rem/2;
+  }
+  &.top {
+    top: 0;
+    bottom: inherit;
   }
 
   .link {
@@ -51,5 +61,16 @@
     }
   }
 
+
+}
+
+@media screen and (min-width: 768px) {
+  .cookie-warning {
+    flex-direction: row;
+
+    .cookie--inner {
+      flex: 1;
+    }
+  }
 
 }
