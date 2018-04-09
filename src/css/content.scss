@@ -1,0 +1,55 @@
+.cookie-warning {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 9999;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-around;
+
+  .cookie--inner {
+    display: flex;
+    flex-wrap: wrap;
+
+    p {
+      max-width: 100%;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+  }
+  &.no-accepted {
+    display: flex;
+  }
+  .cookie--footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1rem/2;
+  }
+
+  .link {
+    align-self: center;
+  }
+
+  .close {
+    align-self: center;
+    appearance: none;
+    box-shadow: none;
+    padding: .75em 2em;
+    border: none;
+
+    margin-left: 10px;
+
+    &:hover,
+    &:active,
+    &:focus{
+      cursor: pointer;
+      outline: 0;
+    }
+  }
+
+
+}
