@@ -59,13 +59,14 @@ class Cookie {
 }
 
 class CookieWarning {
-    constructor(options) {
-        this.options = Object.assign(CookieWarning.defaults, options);
 
-        this.init();
+    constructor() {
+        this.options = {};
     }
 
-    init() {
+    init(options) {
+        this.options = Object.assign(CookieWarning.defaults, options);
+
         if(this.isCookieSet()) {
             return false;
         }
