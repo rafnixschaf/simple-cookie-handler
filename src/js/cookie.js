@@ -123,7 +123,7 @@ class CookieWarning {
 
     addEventListener() {
 
-        let closeEl = this.element.querySelectorAll('.close');
+        let closeEl = this.element.querySelectorAll(this.options.btnClass);
 
         for (let i = 0; i < closeEl.length; i++) {
             closeEl[i].addEventListener('click', (e) => {
@@ -144,6 +144,7 @@ class CookieWarning {
 CookieWarning.defaults = {
     cookieName: "kr-cookie-acc",
     position: "bottom",
+    btnClass: "cookie-close",
     duration: "31536e3",
     value: "true",
     path: "/",
@@ -156,7 +157,7 @@ CookieWarning.defaults = {
             '      </p>' +
             '   </div>' +
             '   <div class="cookie--footer">' +
-            '        <button class="close btn button__primary">'+ btnText +'</button>' +
+            '        <button class="cookie-close btn button__primary">'+ btnText +'</button>' +
             '   </div>' +
             '</div>'
     }
