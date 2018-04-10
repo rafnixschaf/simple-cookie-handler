@@ -1,0 +1,30 @@
+{
+  "name": "simple-cookie-handler",
+  "description": "Handling Cookie Warning",
+  "main": [
+    "src/js/cookie.js",
+    "dist/css/content.scss"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "moduleType": [
+    "umd"
+  ],
+  "keywords": [
+    "cookie"
+  ],
+  "authors": [
+    "Sascha Tech <rafnixschaf@gmx.de>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true
+}
