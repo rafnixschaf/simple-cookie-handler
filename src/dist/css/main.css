@@ -1,10 +1,10 @@
 .cookie-warning {
   display: none;
+  background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #c3c1c1;
   z-index: 9999;
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -33,6 +33,7 @@
 }
 
 .cookie-warning .cookie--inner p {
+  color: white;
   max-width: 100%;
   margin-bottom: 0;
   margin-top: 0;
@@ -69,7 +70,9 @@
           align-self: center;
 }
 
-.cookie-warning .close {
+.cookie-warning .cookie-close {
+  background-color: #ca0017;
+  color: #fff;
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
@@ -79,13 +82,15 @@
   -webkit-box-shadow: none;
           box-shadow: none;
   padding: .75em 2em;
+  padding-bottom: .6rem;
   border: none;
+  border-radius: 0;
   margin-left: 10px;
 }
 
-.cookie-warning .close:hover,
-.cookie-warning .close:active,
-.cookie-warning .close:focus {
+.cookie-warning .cookie-close:hover,
+.cookie-warning .cookie-close:active,
+.cookie-warning .cookie-close:focus {
   cursor: pointer;
   outline: 0;
 }
