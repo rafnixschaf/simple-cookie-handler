@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": " ssh://git@example.com/website.git"
+    "url": " ssh://git@github.com:rafnixschaf/simple-cookie-handler.git"
   },
   "author": "Your name <you.name@example.com>",
   "license": "ISC",
