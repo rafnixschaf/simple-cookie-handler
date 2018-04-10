@@ -144,7 +144,7 @@ class CookieWarning {
 CookieWarning.defaults = {
     cookieName: "kr-cookie-acc",
     position: "bottom",
-    btnClass: "cookie-close",
+    btnClass: ".cookie-close",
     duration: "31536e3",
     value: "true",
     path: "/",
