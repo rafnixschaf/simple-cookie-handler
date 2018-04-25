@@ -3,7 +3,10 @@
 If the user accepts the cookie warning, a cookie is written and the alert is no longer displayed.  
 
 ## Installing Package
-* Load package with npm `npm install simple-cookie-handler` or with bower `bower install simple-cookie-handler`
+* Loading package via  
+npm: `npm install simple-cookie-handler -E`  
+bower `bower install simple-cookie-handler`  
+yarn `yarn add simple-cookie-handler --E`
 * Insert into your project the files `simple-cookie-handler/dist/cookie.min.js` and `simple-cookie-handler/dist/cookie.min.css` 
 
 ### Loading via html
