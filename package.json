@@ -1,6 +1,6 @@
 {
   "name": "simple-cookie-handler",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "description": "Handling Cookie Warning",
   "main": "index.html",
   "scripts": {
@@ -9,10 +9,7 @@
     "watch": "webpack --mode development --watch --config webpack.dev.js",
     "build": "webpack --mode production --config webpack.prod.js"
   },
-  "repository": {
-    "type": "git",
-    "url": " ssh://git@github.com:rafnixschaf/simple-cookie-handler.git"
-  },
+  "repository": " ssh://git@github.com:rafnixschaf/simple-cookie-handler.git",
   "author": "Sascha Tech <rafnixschaf@gmx.de>",
   "license": "ISC",
   "dependencies": {},
