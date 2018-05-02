@@ -11,7 +11,8 @@ yarn `yarn add simple-cookie-handler --E`
 
 ### Loading via html
 ```
-<script src="simple-cookie-handler/dist/cookie.min.js">
+<link rel="stylesheet" href="[path-to-folder]simple-cookie-handler/dist/cookie.min.js">
+<script src="[path-to-folder]simple-cookie-handler/dist/cookie.min.js">
 <script>
     new CookieWarning().init(options);
 </script>
@@ -20,9 +21,28 @@ yarn `yarn add simple-cookie-handler --E`
 ### Usage with webpack
 
 ```
+import 'simple-cookie-handler/dist/cookie.min.css';
 const CookieWarning = require('simple-cookie-handler/dist/cookie.min');
 new CookieWarning().init(options);
+```  
+Or
+##### webpack.common.js
 ```
+new webpack.ProvidePlugin({
+        CookieWarning: 'CookieWarning!simple-cookie-handler/dist/cookie.min'
+});
+```
+##### import.scss
+```
+@import "~simple-cookie-handler/dist/cookie.min.css";
+```
+
+##### main.js
+```
+new CookieWarning().init(options);
+```
+
+
 
 ## Options  
 
