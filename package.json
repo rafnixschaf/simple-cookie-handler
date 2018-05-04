@@ -1,6 +1,6 @@
 {
   "name": "simple-cookie-handler",
-  "version": "0.0.19",
+  "version": "0.1.0",
   "description": "Handling Cookie Warning",
   "main": "index.html",
   "scripts": {
@@ -42,5 +42,7 @@
     "webpack-manifest-plugin": "2.0.0-rc.2",
     "webpack-merge": "4.1.2"
   },
-  "keywords": [ "cookie"]
+  "keywords": [
+    "cookie"
+  ]
 }
