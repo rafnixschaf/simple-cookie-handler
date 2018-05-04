@@ -1,13 +1,13 @@
-# Cookie
+# Cookie Warning Handler
 
-If the user accepts the cookie warning, a cookie is written and the alert is no longer displayed.  
+DSGVO <3. Shows a cookie warning. If the user accepts the cookie warning, a cookie is written and the alert is no longer displayed.  
 
 ## Installing Package
 * Loading package via  
 npm: `npm install simple-cookie-handler -E`  
-bower `bower install simple-cookie-handler`  
-yarn `yarn add simple-cookie-handler --E`
-* Insert into your project the files `simple-cookie-handler/dist/cookie.min.js` and `simple-cookie-handler/dist/cookie.min.css` 
+bower: `bower install simple-cookie-handler`  
+yarn: `yarn add simple-cookie-handler --E`
+* Load the files `simple-cookie-handler/dist/cookie.min.js` and `simple-cookie-handler/dist/cookie.min.css` 
 
 ### Loading via html
 ```
@@ -44,52 +44,88 @@ new CookieWarning().init(options);
 
 
 
-## Options  
+Options
+======================  
 
-**cookieName**  
-(string) - name of the cookie  
+**cookieName**
+ -------------------
+`string` - name of the cookie  
 _Default:_ kr-cookie-acc
+ 
+**declineAction**  
+-------------------
+`function` - evil eval function because dont know what to do with this option :)  
+_Default:_ console.log('user declined cookie'); 
 
-**position**  
-(string) - position the the cookie warning top or bottom: top, bottom  
-_Default:_ bottom
- 
-**btnClass**  
-(string) - class of close element  
-_Default:_ .cookie-close  
- 
 **duration**  
-(int) - duration the cookie exist  
+-------------------
+`int` - duration the cookie exist  
 _Default:_ 31536e3  
  
 **value**  
-(string) - value of cookie  
+-------------------
+`string - value of cookie  
 _Default:_ true  
  
 **path**  
-(string) - path for the cookie  
+-------------------
+`string` - path for the cookie  
 _Default:_ /  
  
-**tplContent**  
-(string) - content for the cookie box  
-_Default:_ Diese Website verwendet Cookies. Indem (...)  
 
-**tplBtn**  
-(string) - Close Button text  
+**tplWording**  
+-------------------
+`object` - contains the template texts  
+_Defaults:_  
+  
+**content**:   
+`string` - cookie content
+_Default:_  Diese Website verwendet Cookies. Indem (...)  
+
+**btnAccept**   
+`string` - contains accept button text  
 _Default:_ Akzeptieren  
+
+**btnDecline**  
+`string` :  - contains decline button text
+_Default:_ Ablehnen  
+ 
+tplOptions
+-------------------
+`object` - contains the template options  
+_Defaults:_
+
+**position**  
+`string` - position of the cookie warning  
+_Default:_ bottom, accepted is: top, bottom
+
+**btnAcceptClass**  
+`string`  - class of the accept button  
+_Default:_ cookie-accept
+
+**btnDeclineClass**:   
+`string` - class of the decline button  
+_Default:_ cookie-decline  
+
+**allowDecline**  
+`boolean`- show/hide the decline button  
+_Default:_ false
+ 
  
 **template**
+======================
 
 ```javascript
-template: function(content, btnText, position) {
-         return  '<div class="cookie-warning '+ position + '">' +
-             '   <div class="cookie--inner">' +
-             '      <p>' + content +
-             '      </p>' +
-             '   </div>' +
-             '   <div class="cookie--footer">' +
-             '        <button class="cookie-close btn button__primary">'+ btnText +'</button>' +
-             '   </div>' +
-             '</div>'
-             }
+template: function(wording, options) {
+        return `<div class="cookie-warning ${options.position}">
+                    <div class="cookie--inner">
+                        <p>${ wording.content }</p>
+                    </div>
+                     <div class="cookie--footer">
+                        ${ options.allowDecline ? `<button class="${ options.btnDeclineClass } btn button__secondary">${ wording.btnDecline }</button>` : ''}
+                        <button class="${ options.btnAcceptClass } btn button__primary">${ wording.btnAccept }</button>
+                    </div>
+                 </div>
+        `;
+}
 ```

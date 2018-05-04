@@ -71,30 +71,33 @@ class CookieWarning {
             return false;
         }
 
-        const parser = new DOMParser();
-        const el = parser.parseFromString(this.getTemplate(), "text/html");
-        this.element = el.body.firstChild;
-        document.body.appendChild(this.element);
-
+        this.insertCookieWarning();
         this.addEventListener();
         this.fadeInOut(true);
 
     }
 
+    /**
+     * insert cookie warning into dom
+     */
+    insertCookieWarning() {
+        const parser = new DOMParser();
+        const el = parser.parseFromString(this.getTemplate(), "text/html");
+        this.element = el.body.firstChild;
+        document.body.appendChild(this.element);
+    }
+
     getTemplate() {
-        return this.options.template(this.options.tplContent, this.options.tplBtn, this.options.position);
+        return this.options.template(this.options.tplWording, this.options.tplOptions);
     }
 
     /**
      *  check if cookie is set
+     *  @returns {boolean}
      */
     isCookieSet() {
 
-        if(!Cookie.hasItem(this.options.cookieName)) {
-            return false;
-        } else {
-            return true;
-        }
+        return Cookie.hasItem(this.options.cookieName);
     }
 
     fadeInOut(fade) {
@@ -112,27 +115,53 @@ class CookieWarning {
      * @returns {string}
      */
     parseUrl(url) {
-        var urlSplitted = url.split('.');
+        const ipv4UrlRegex = new RegExp('([0-9]{1,3}\.){3}[0-9]{1,3}');
+        const ipv6UrlRegex = new RegExp('(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}');
 
-        if(urlSplitted.length <= 1) {
-            // dev
+        if(ipv4UrlRegex.test(url) || ipv6UrlRegex.test(url)) {
             return url;
         }
+
+        var urlSplitted = url.split('.');
         return urlSplitted[urlSplitted.length-2] + '.' + urlSplitted[urlSplitted.length-1];
     }
 
+    /**
+     *   Added event listener on buttons
+     *
+     */
     addEventListener() {
 
-        let closeEl = this.element.querySelectorAll(this.options.btnClass);
+        let acceptBtn = this.element.getElementsByClassName(this.options.tplOptions.btnAcceptClass);
+        let declineBtn = this.element.getElementsByClassName(this.options.tplOptions.btnDeclineClass);
 
-        for (let i = 0; i < closeEl.length; i++) {
-            closeEl[i].addEventListener('click', (e) => {
-                this.setCookie();
-                this.fadeInOut(!this.isCookieSet());
-
+        for (let i = 0; i < acceptBtn.length; i++) {
+            acceptBtn[i].addEventListener('click', (e) => {
+                this.acceptCookie();
             })
         }
 
+        for (let i = 0; i < declineBtn.length; i++) {
+            declineBtn[i].addEventListener('click', (e) => {
+                this.declineCookie();
+            })
+        }
+
+    }
+
+    /**
+     * handle the behaviour on accepting
+     */
+    acceptCookie() {
+        this.setCookie();
+        this.fadeInOut(!this.isCookieSet());
+    }
+
+    /**
+     *   handle the behaviour on decline the cookie warning
+     */
+    declineCookie() {
+        eval(this.options.declineAction);
     }
 
     setCookie() {
@@ -143,23 +172,32 @@ class CookieWarning {
 
 CookieWarning.defaults = {
     cookieName: "kr-cookie-acc",
-    position: "bottom",
-    btnClass: ".cookie-close",
+    declineAction: "console.log('user declined cookie');",
     duration: "31536e3",
     value: "true",
     path: "/",
-    tplContent: "Diese Website verwendet Cookies. Indem Sie die Website und ihre Angebote nutzen und weiter navigieren, akzeptieren Sie diese Cookies. Dies können Sie in Ihren Browsereinstellungen ändern.",
-    tplBtn: "Akzeptieren",
-    template: function(content, btnText, position) {
-        return  '<div class="cookie-warning '+ position + '">' +
-            '   <div class="cookie--inner">' +
-            '      <p>' + content +
-            '      </p>' +
-            '   </div>' +
-            '   <div class="cookie--footer">' +
-            '        <button class="cookie-close btn button__primary">'+ btnText +'</button>' +
-            '   </div>' +
-            '</div>'
+    tplWording: {
+        content: "Diese Website verwendet Cookies. Indem Sie die Website und ihre Angebote nutzen und weiter navigieren, akzeptieren Sie diese Cookies. Dies können Sie in Ihren Browsereinstellungen ändern.",
+        btnAccept: "Akzeptieren",
+        btnDecline: "Ablehnen",
+    },
+    tplOptions: {
+        position: "bottom",
+        btnAcceptClass: "cookie-accept",
+        btnDeclineClass: "cookie-decline",
+        allowDecline: false,
+    },
+    template: function(wording, options) {
+        return `<div class="cookie-warning ${options.position}">
+                    <div class="cookie--inner">
+                        <p>${ wording.content }</p>
+                    </div>
+                     <div class="cookie--footer">
+                        ${ options.allowDecline ? `<button class="${ options.btnDeclineClass } btn button__secondary">${ wording.btnDecline }</button>` : ''}
+                        <button class="${ options.btnAcceptClass } btn button__primary">${ wording.btnAccept }</button>
+                    </div>
+                 </div>
+        `;
     }
 };
 
