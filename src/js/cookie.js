@@ -115,10 +115,11 @@ class CookieWarning {
      * @returns {string}
      */
     parseUrl(url) {
+        const local = new RegExp(this.options.localUrls);
         const ipv4UrlRegex = new RegExp('([0-9]{1,3}\.){3}[0-9]{1,3}');
         const ipv6UrlRegex = new RegExp('(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}');
 
-        if(ipv4UrlRegex.test(url) || ipv6UrlRegex.test(url)) {
+        if(ipv4UrlRegex.test(url) || ipv6UrlRegex.test(url) || local.test(url)) {
             return url;
         }
 
@@ -171,6 +172,7 @@ class CookieWarning {
 }
 
 CookieWarning.defaults = {
+    localUrls: "(localhost)", // regex string
     cookieName: "kr-cookie-acc",
     declineAction: "console.log('user declined cookie');",
     duration: "31536e3",

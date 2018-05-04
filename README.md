@@ -47,6 +47,11 @@ new CookieWarning().init(options);
 Options
 ======================  
 
+**localUrls**
+ -------------------
+`string regex` - regex string to detect local url  
+_Default:_ localhost
+
 **cookieName**
  -------------------
 `string` - name of the cookie  
@@ -64,7 +69,7 @@ _Default:_ 31536e3
  
 **value**  
 -------------------
-`string - value of cookie  
+`string` - value of cookie  
 _Default:_ true  
  
 **path**  
