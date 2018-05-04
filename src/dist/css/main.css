@@ -51,11 +51,19 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 1rem;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-bottom: 1rem/2;
 }
 
@@ -70,9 +78,18 @@
           align-self: center;
 }
 
-.cookie-warning .cookie-close {
+.cookie-warning .button__primary {
   background-color: #ca0017;
   color: #fff;
+  border-radius: 0;
+}
+
+.cookie-warning .button__secondary {
+  background-color: #828e82;
+  color: #fff;
+}
+
+.cookie-warning .btn {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
@@ -84,15 +101,39 @@
   padding: .75em 2em;
   padding-bottom: .6rem;
   border: none;
-  border-radius: 0;
-  margin-left: 10px;
 }
 
-.cookie-warning .cookie-close:hover,
-.cookie-warning .cookie-close:active,
-.cookie-warning .cookie-close:focus {
+.cookie-warning .btn:last-of-type {
+  margin-top: 1rem;
+}
+
+.cookie-warning .btn:hover,
+.cookie-warning .btn:active,
+.cookie-warning .btn:focus {
   cursor: pointer;
   outline: 0;
+}
+
+@media screen and (min-width: 544px) {
+  .cookie-warning .cookie--footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+
+  .cookie-warning .btn {
+    margin-left: 10px;
+  }
+
+  .cookie-warning .btn:last-of-type {
+    margin-top: 0;
+  }
 }
 
 @media screen and (min-width: 768px) {
