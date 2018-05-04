@@ -9,7 +9,10 @@
     "watch": "webpack --mode development --watch --config webpack.dev.js",
     "build": "webpack --mode production --config webpack.prod.js"
   },
-  "repository": " ssh://git@github.com:rafnixschaf/simple-cookie-handler.git",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:rafnixschaf/simple-cookie-handler.git"
+  },
   "author": "Sascha Tech <rafnixschaf@gmx.de>",
   "license": "ISC",
   "dependencies": {},
@@ -27,7 +30,7 @@
     "exports-loader": "0.7.0",
     "extract-text-webpack-plugin": "4.0.0-beta.0",
     "file-loader": "1.1.11",
-    "node-sass": "4.7.2",
+    "node-sass": "^4.9.0",
     "path": "0.12.7",
     "postcss-loader": "2.1.3",
     "resolve-url-loader": "2.3.0",
@@ -38,5 +41,6 @@
     "webpack-cli": "2.0.13",
     "webpack-manifest-plugin": "2.0.0-rc.2",
     "webpack-merge": "4.1.2"
-  }
+  },
+  "keywords": [ "cookie"]
 }
