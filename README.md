@@ -11,7 +11,7 @@ yarn: `yarn add simple-cookie-handler --E`
 
 ### Loading via html
 ```
-<link rel="stylesheet" href="[path-to-folder]simple-cookie-handler/dist/cookie.min.js">
+<link rel="stylesheet" href="[path-to-folder]simple-cookie-handler/dist/cookie.min.css">
 <script src="[path-to-folder]simple-cookie-handler/dist/cookie.min.js">
 <script>
     new CookieWarning().init(options);
