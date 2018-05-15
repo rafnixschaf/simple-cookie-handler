@@ -29,7 +29,7 @@ Or
 ##### webpack.common.js
 ```
 new webpack.ProvidePlugin({
-        CookieWarning: 'CookieWarning!simple-cookie-handler/dist/cookie.min'
+        CookieWarning: 'exports-loader?CookieWarning!simple-cookie-handler/dist/cookie.min'
 });
 ```
 ##### import.scss
