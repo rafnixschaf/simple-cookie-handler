@@ -1,6 +1,6 @@
 {
   "name": "simple-cookie-handler",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Handling Cookie Warning",
   "main": "index.html",
   "scripts": {
