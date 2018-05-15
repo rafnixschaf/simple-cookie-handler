@@ -35,3 +35,5 @@ web/js/es5
 ## Docker ingnores
 /docker/lib/mysql/*
 /wp-cli.phar
+
+src/dist/**
