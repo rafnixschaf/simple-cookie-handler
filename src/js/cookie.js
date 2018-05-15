@@ -1,3 +1,4 @@
+var merge = require('lodash.merge');
 
 class Cookie {
     /**
@@ -65,7 +66,7 @@ class CookieWarning {
     }
 
     init(options) {
-        this.options = Object.assign(CookieWarning.defaults, options);
+        this.options = merge(CookieWarning.defaults, options);
 
         if(this.isCookieSet()) {
             return false;
