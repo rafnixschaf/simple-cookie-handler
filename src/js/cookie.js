@@ -182,22 +182,30 @@ CookieWarning.defaults = {
     tplWording: {
         content: "Diese Website verwendet Cookies. Indem Sie die Website und ihre Angebote nutzen und weiter navigieren, akzeptieren Sie diese Cookies. Dies können Sie in Ihren Browsereinstellungen ändern.",
         btnAccept: "Akzeptieren",
-        btnDecline: "Ablehnen",
+        btnDecline: "",
+        btnInfo: "Mehr erfahren",
     },
     tplOptions: {
+        infoLink: {
+          target: "",
+          url: ""
+        },
         position: "bottom",
-        btnAcceptClass: "cookie-accept",
-        btnDeclineClass: "cookie-decline",
-        allowDecline: false,
+        btnAcceptClass: "cookie-warning__accept",
+        btnDeclineClass: "cookie-warning__decline",
+        btnInfoClass: "cookie-warning__info"
     },
     template: function(wording, options) {
         return `<div class="cookie-warning ${options.position}">
-                    <div class="cookie--inner">
+                    <div class="cookie-warning__inner ">
                         <p>${ wording.content }</p>
                     </div>
-                     <div class="cookie--footer">
-                        ${ options.allowDecline ? `<button class="${ options.btnDeclineClass } btn button__secondary">${ wording.btnDecline }</button>` : ''}
-                        <button class="${ options.btnAcceptClass } btn button__primary">${ wording.btnAccept }</button>
+                     <div class="cookie-warning__footer">
+                        ${ wording.btnDecline.length > 0 ? `<button class="${ options.btnDeclineClass } cookie-warning__btn cookie-warning__button--secondary">${ wording.btnDecline }</button>` : ''}
+                        <button class="${ options.btnAcceptClass } cookie-warning__btn cookie-warning__button--primary">${ wording.btnAccept }</button>
+                        ${ wording.btnInfo.length > 0 ? `<a href="${ options.infoLink.url}" target="${ options.infoLink.target}" 
+                                                        class="${ options.btnInfoClass } cookie-warning__btn cookie-warning__button--primary">${ wording.btnInfo }</a>` : ''
+                        }
                     </div>
                  </div>
         `;
