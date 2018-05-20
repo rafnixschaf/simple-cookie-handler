@@ -183,7 +183,7 @@ CookieWarning.defaults = {
         content: "Diese Website verwendet Cookies. Indem Sie die Website und ihre Angebote nutzen und weiter navigieren, akzeptieren Sie diese Cookies. Dies können Sie in Ihren Browsereinstellungen ändern.",
         btnAccept: "Akzeptieren",
         btnDecline: "",
-        btnInfo: "Mehr erfahren",
+        btnInfo: "",
     },
     tplOptions: {
         infoLink: {
