@@ -69,6 +69,7 @@ class CookieWarning {
         this.options = merge(CookieWarning.defaults, options);
 
         if(this.isCookieSet()) {
+            this.isAccepted();
             return false;
         }
 
@@ -97,7 +98,6 @@ class CookieWarning {
      *  @returns {boolean}
      */
     isCookieSet() {
-
         return Cookie.hasItem(this.options.cookieName);
     }
 
@@ -157,6 +157,11 @@ class CookieWarning {
     acceptCookie() {
         this.setCookie();
         this.fadeInOut(!this.isCookieSet());
+        this.isAccepted();
+    }
+
+    isAccepted() {
+       this.options.onAccept();
     }
 
     /**
@@ -179,6 +184,7 @@ CookieWarning.defaults = {
     duration: "31536e3",
     value: "true",
     path: "/",
+    onAccept: function() {},
     tplWording: {
         content: "Diese Website verwendet Cookies. Indem Sie die Website und ihre Angebote nutzen und weiter navigieren, akzeptieren Sie diese Cookies. Dies können Sie in Ihren Browsereinstellungen ändern.",
         btnAccept: "Akzeptieren",

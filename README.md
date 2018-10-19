@@ -47,6 +47,11 @@ new CookieWarning().init(options);
 Options
 ======================  
 
+**onAccept** 
+ -------------------
+`function` - will be triggered if cookie has been accepted  
+_Default:_ function() {}
+
 **localUrls**
  -------------------
 `string regex` - regex string to detect local url  
